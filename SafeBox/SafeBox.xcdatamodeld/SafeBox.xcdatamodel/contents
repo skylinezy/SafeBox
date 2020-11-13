@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BankCard" representedClassName="BankCard" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="bankname" optional="YES" attributeType="String"/>
+        <attribute name="cardnumber" optional="YES" attributeType="String"/>
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="cvv" optional="YES" attributeType="String"/>
+        <attribute name="expDate" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Credential" representedClassName="Credential" syncable="YES" codeGenerationType="class">
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="website" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="General" representedClassName="General" syncable="YES" codeGenerationType="class">
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="additionaldata" optional="YES" attributeType="Binary"/>
+        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="BankCard" positionX="-63" positionY="45" width="128" height="178"/>
+        <element name="General" positionX="-36" positionY="99" width="128" height="118"/>
+        <element name="Credential" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Note" positionX="-54" positionY="72" width="128" height="118"/>
     </elements>
 </model>
