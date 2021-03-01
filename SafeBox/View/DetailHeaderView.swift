@@ -19,7 +19,7 @@ struct DetailHeaderView: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(Color.white)
-                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
+                .modifier(TextDropShadow())
                 .frame(width: 30, height: 30)
                 .padding(.horizontal, 10)
                 
@@ -27,7 +27,7 @@ struct DetailHeaderView: View {
                 .foregroundColor(Color.white)
                 .font(.title2)
                 .fontWeight(.bold)
-                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
+                .modifier(TextDropShadow())
             
             Spacer()
         }//: HSTACK

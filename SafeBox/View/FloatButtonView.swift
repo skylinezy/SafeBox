@@ -21,14 +21,13 @@ struct FloatButtonView: View {
             
             Circle()
                 .fill(LinearGradient(gradient: Gradient(colors:backgroundColors), startPoint: .topLeading, endPoint: .bottomTrailing))
-                .frame(width: 56, height: 56)
+                .frame(width: 54, height: 54)
             
             Image(systemName: icon)
-                .resizable()
-                .scaledToFit()
+                .font(Font.system(size: 28, weight: .regular))
                 .foregroundColor(Color.white)
                 .frame(width: 35, height: 35)
-                .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 8, x: 2, y: 2)
+                .modifier(TextDropShadow())
         }
         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 2, x: 2, y: 2)
     }
@@ -40,15 +39,27 @@ struct FloatButtonView_Previews: PreviewProvider {
     static let bgcolors3 = [Color("BtnRedLight"), Color("BtnRed")]
     
     static var previews: some View {
-        FloatButtonView(backgroundColors: bgcolors1, icon: "plus")
+        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "plus")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: bgcolors2, icon: "lock.open")
+        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "pencil")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: bgcolors3, icon: "trash")
+        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "list.bullet")
+            .preferredColorScheme(.light)
+            .previewLayout(.fixed(width: 80, height: 80))
+        
+        FloatButtonView(backgroundColors: SBGradientColors().GreenButton, icon: "trash")
+            .preferredColorScheme(.light)
+            .previewLayout(.fixed(width: 80, height: 80))
+        
+        FloatButtonView(backgroundColors: SBGradientColors().RedButton, icon: "xmark")
+            .preferredColorScheme(.light)
+            .previewLayout(.fixed(width: 80, height: 80))
+        
+        FloatButtonView(backgroundColors: SBGradientColors().GreenButton, icon: "checkmark")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
     }

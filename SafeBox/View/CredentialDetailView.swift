@@ -10,7 +10,10 @@ import SwiftUI
 struct CredentialDetailView: View {
     //MARK: - Properties
     var data: CredentialModel
-    var backgroundGradientColors: [Color] = [Color("PrimaryPurple"), Color("PrimaryBlue")]
+    @Environment(\.managedObjectContext) private var managedContext
+    
+    @State var isEditable: Bool = false
+    @State var isDeleting: Bool = false
     
     //MARK: - Body
     var body: some View {
@@ -26,29 +29,32 @@ struct CredentialDetailView: View {
                 .padding(.horizontal, 10)
                 .padding(.vertical, 15)
             
-            DetailItemView(title: "Login Username", content: data.username)
+            DetailItemView(icon: "person", title: "Login Username", content: data.username, isEditable: $isEditable)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
             
-            DetailItemView(title: "Login Password", content: data.password)
+            DetailItemView(icon: "key", title: "Login Password", content: data.password, isEditable: $isEditable)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
             
-            DetailItemView(title: "Email", content: data.email)
+            DetailItemView(icon: "envelope", title: "Email", content: data.email, isEditable: $isEditable)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
             
-            DetailItemView(title: "Note", content: data.note)
+            DetailItemView(icon: "note.text", title: "Note", content: data.note, isEditable: $isEditable)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
             
             Spacer()
             
+            DetailToolbarView(isEditable: $isEditable, isDeleting: $isDeleting)
+                .padding(20)
+            
         }
         .padding(.vertical, 8)
-        .background(LinearGradient(gradient: Gradient(colors:backgroundGradientColors), startPoint: .topLeading, endPoint: .bottomTrailing))
+        .background(LinearGradient(gradient: Gradient(colors:SBGradientColors().Credential), startPoint: .topLeading, endPoint: .bottomTrailing))
         .cornerRadius(20)
-        .padding(.horizontal, 8)
+        .padding(.horizontal, 10)
     }
 }
 
