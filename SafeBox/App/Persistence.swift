@@ -29,6 +29,15 @@ struct PersistenceController {
             newItem.cardnumber = "1234 5678 8888 9999"
         }
         
+        for i in 0..<3 {
+            let newItem = Record(context: viewContext)
+            newItem.id = UUID()
+            newItem.createdOn = Date()
+            newItem.modifiedOn = Date()
+            newItem.recordType = RecordTypes.Note
+            newItem.setData(data: ["noteTitle": "someTitle", "note": "default Note"])
+        }
+        
         do {
             try viewContext.save()
         } catch {

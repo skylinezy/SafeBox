@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-enum RecordTypes: Int {
-    case Credential = 0
-    case BankCard
-    case Note
-    case Unknown
+enum RecordTypes: Int16 {
+    case Unknown    = 0
+    case Credential = 1
+    case BankCard   = 2
+    case Note       = 3
+    case License    = 4
 }

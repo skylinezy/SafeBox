@@ -39,27 +39,27 @@ struct FloatButtonView_Previews: PreviewProvider {
     static let bgcolors3 = [Color("BtnRedLight"), Color("BtnRed")]
     
     static var previews: some View {
-        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "plus")
+        FloatButtonView(backgroundColors: SBColors().BlueButton, icon: "plus")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "pencil")
+        FloatButtonView(backgroundColors: SBColors().BlueButton, icon: "pencil")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: SBGradientColors().BlueButton, icon: "list.bullet")
+        FloatButtonView(backgroundColors: SBColors().BlueButton, icon: "list.bullet")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: SBGradientColors().GreenButton, icon: "trash")
+        FloatButtonView(backgroundColors: SBColors().GreenButton, icon: "trash")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: SBGradientColors().RedButton, icon: "xmark")
+        FloatButtonView(backgroundColors: SBColors().RedButton, icon: "xmark")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
         
-        FloatButtonView(backgroundColors: SBGradientColors().GreenButton, icon: "checkmark")
+        FloatButtonView(backgroundColors: SBColors().GreenButton, icon: "checkmark")
             .preferredColorScheme(.light)
             .previewLayout(.fixed(width: 80, height: 80))
     }

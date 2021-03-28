@@ -29,7 +29,7 @@ struct CategoryCard: View {
             
         }
         .padding()
-        .frame(width: 320, height: .infinity)
+        .frame(width: 320)
         .background(LinearGradient(gradient: Gradient(colors:backgroundGradientColors), startPoint: .topLeading, endPoint: .bottomTrailing))
         .cornerRadius(10)
     }
@@ -37,7 +37,7 @@ struct CategoryCard: View {
 
 struct CategoryCard_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryCard(icon: "globe", title: "Credential", backgroundGradientColors: SBGradientColors().BankCard)
+        CategoryCard(icon: "globe", title: "Credential", backgroundGradientColors: SBColors().BankCard)
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
             .padding()

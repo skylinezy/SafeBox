@@ -22,10 +22,13 @@ struct DetailToolbarView: View {
         let longPressGestureDelay = DragGesture(minimumDistance: 0)
             .updating($isDragging) { value, gestureState, transaction in
                 gestureState = true
-                self.dragState = value.translation
+                //self.dragState = value.translation
+            }
+            .onChanged { gesture in
+                self.dragState = gesture.translation
             }
             .onEnded { value in
-                if (value.translation.width > UIScreen.main.bounds.width * 0.7) {
+                if (value.translation.width > 140) {
                     self.isEditable = true
                 }
                 self.dragState = CGSize.zero
@@ -41,7 +44,7 @@ struct DetailToolbarView: View {
             ZStack(alignment: .leading){
                 Rectangle()
                     .foregroundColor(.blue)
-                    .frame(width: .infinity, height: 60)
+                    .frame(height: 60)
                     .cornerRadius(30)
                     .opacity((isDragging && !isEditable) ? 1.0 : 0.0)
                     .animation(.easeIn(duration: 0.1))
@@ -55,7 +58,7 @@ struct DetailToolbarView: View {
                             .opacity((isDragging && !isEditable) ? 1.0 : 0.0)
                         
                         Circle()
-                            .fill(LinearGradient(gradient: Gradient(colors:SBGradientColors().BlueButton), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors:SBColors().BlueButton), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .frame(width: 46, height: 46)
                             .modifier(TextDropShadow())
                             .opacity((isDragging && !isEditable) ? 1.0 : 0.0)
@@ -89,6 +92,7 @@ struct DetailToolbarView: View {
                 .padding(.horizontal, 5)
  
             }
+            .frame(width: 200)
             
             Spacer()
             

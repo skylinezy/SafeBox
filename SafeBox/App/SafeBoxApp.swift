@@ -13,7 +13,7 @@ struct SafeBoxApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MasterListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BankCard" representedClassName="BankCard" syncable="YES" codeGenerationType="class">
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="bankname" optional="YES" attributeType="String"/>
@@ -21,13 +21,6 @@
         <attribute name="username" optional="YES" attributeType="String"/>
         <attribute name="website" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="General" representedClassName="General" syncable="YES" codeGenerationType="class">
-        <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="data" optional="YES" attributeType="Binary"/>
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="additionaldata" optional="YES" attributeType="Binary"/>
         <attribute name="createdOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -35,10 +28,17 @@
         <attribute name="modifiedOn" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="note" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="createdOn" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="modifiedOn" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="BankCard" positionX="-63" positionY="45" width="128" height="178"/>
-        <element name="General" positionX="-36" positionY="99" width="128" height="118"/>
-        <element name="Credential" positionX="-63" positionY="-18" width="128" height="163"/>
-        <element name="Note" positionX="-54" positionY="72" width="128" height="118"/>
+        <element name="Credential" positionX="98.33203125" positionY="47.4921875" width="128" height="163"/>
+        <element name="Note" positionX="250.32421875" positionY="74.0625" width="128" height="118"/>
+        <element name="Record" positionX="-362.99609375" positionY="96.85546875" width="128" height="118"/>
     </elements>
 </model>

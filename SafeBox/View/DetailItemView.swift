@@ -11,7 +11,7 @@ struct DetailItemView: View {
     //MARK: - Properties
     var icon: String = "globe"
     var title : String
-    @State var content: String
+    @Binding var content: String
     
     @Binding var isEditable: Bool
     
@@ -51,7 +51,7 @@ struct DetailItemView: View {
                     .padding(.vertical, 0)
                     
                     Rectangle()
-                        .frame(width: .infinity, height: 1)
+                        .frame(height: 1)
                         .foregroundColor(Color.white)
                         .padding(0)
                 }//: HSTACK
@@ -71,7 +71,7 @@ struct DetailItemView: View {
                     .padding(.vertical, 0)
                     
                     Rectangle()
-                        .frame(width: .infinity, height: 1)
+                        .frame(height: 1)
                         .foregroundColor(Color.white)
                         .padding(0)
                 }//: HSTACK
@@ -84,11 +84,11 @@ struct DetailItemView: View {
 struct DetailItemView_PreviewHelper: View {
     var icon: String
     var title: String
-    var content: String
+    @State var content: String
     @State var editable: Bool
     
     var body: some View {
-        DetailItemView(icon: icon, title: title, content: content, isEditable: $editable)
+        DetailItemView(icon: icon, title: title, content: $content, isEditable: $editable)
     }
 }
 
