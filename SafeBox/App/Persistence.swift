@@ -13,29 +13,29 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for i in 0..<5 {
-            let newItem = Credential(context: viewContext)
-            newItem.createdOn = Date()
-            newItem.modifiedOn = Date()
-            newItem.username = "skylinezy"
-            newItem.website = "www.google\(i).com"
-        }
         
-        for i in 0..<5 {
-            let newItem = BankCard(context: viewContext)
-            newItem.createdOn = Date()
-            newItem.modifiedOn = Date()
-            newItem.bankname = "American Express"
-            newItem.cardnumber = "1234 5678 8888 9999"
-        }
-        
-        for i in 0..<3 {
-            let newItem = Record(context: viewContext)
+        for i in 0..<10 {
+            let newItem = Record(context: viewContext, type: .Note)
             newItem.id = UUID()
-            newItem.createdOn = Date()
-            newItem.modifiedOn = Date()
+            newItem.createdDate = Date()
+            newItem.modifiedDate = Date()
             newItem.recordType = RecordTypes.Note
-            newItem.setData(data: ["noteTitle": "someTitle", "note": "default Note"])
+            newItem.title = "someTitle\(i)"
+            newItem.setData(data: ["noteTitle": "someTitle\(i)", "note": "default Note"])
+        }
+        
+        for i in 0..<20 {
+            let newItem = Record(context: viewContext, type: .Credential)
+            newItem.id = UUID()
+            newItem.createdDate = Date()
+            newItem.modifiedDate = Date()
+            newItem.recordType = RecordTypes.Credential
+            newItem.title = "Google\(i).com"
+            newItem.setData(data: ["website": "Google\(i)",
+                                   "username": "Skylinezy",
+                                   "password": "asdfasdfasdf",
+                                   "email": "",
+                                   "note": "someNote"])
         }
         
         do {

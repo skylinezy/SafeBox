@@ -9,7 +9,7 @@ import SwiftUI
 
 internal struct SBColors {
     let BankCard: [Color]    = [Color("PrimaryGreen"), Color("BtnBlueLight")]
-    let Credential: [Color]  = [Color("PrimaryPurple"), Color("BtnBlueLight")]
+    let Credential: [Color]  = [Color("PrimaryRed"), Color("BtnBlueLight")]
     let Note: [Color]        = [Color("PrimaryBlue"), Color("BtnBlueLight")]
     let License: [Color]     = [Color("PrimaryPink"), Color("BtnBlueLight")]
     

@@ -19,7 +19,6 @@ struct NoListSeparator: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .listRowInsets(EdgeInsets(.init(top: -1, leading: self.type == .Cell ? -1 : 15, bottom: -1, trailing: 0)))
-            .background(Color(.systemBackground))
+            .listRowInsets(EdgeInsets(.init(top: -1, leading: self.type == .Cell ? 0 : 15, bottom: -1, trailing: 0)))
     }
 }

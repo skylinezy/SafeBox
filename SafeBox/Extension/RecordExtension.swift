@@ -10,13 +10,15 @@ import SwiftUI
 import CoreData
 
 extension Record {
+    override public func awakeFromInsert() {
+        let now = NSDate.init()
+        setPrimitiveValue(now, forKey: "createdOn")
+    }
+    
     convenience init(context: NSManagedObjectContext, type: RecordTypes) {
         self.init(context: context)
         
         self.id = UUID()
-        self.createdOn = Date()
-        self.modifiedOn = Date()
-        
         self.type = type.rawValue
     }
     var recordType: RecordTypes {
@@ -28,22 +30,31 @@ extension Record {
         }
     }
     
-    var dateFormatter: DateFormatter {
-        return DateFormatter()
-    }
-    
     var createdOnStr: String {
-        self.dateFormatter.dateStyle = .short
-        self.dateFormatter.timeStyle = .short
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
         
-        return self.dateFormatter.string(from: self.createdOn!);
+        return df.string(from: createdDate!);
     }
     
     var modifiedOnStr: String {
-        self.dateFormatter.dateStyle = .short
-        self.dateFormatter.timeStyle = .short
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
         
-        return self.dateFormatter.string(from: self.modifiedOn!);
+        return df.string(from: modifiedDate!);
+    }
+    
+    var lastAccessStr: String {
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .short
+        
+        if lastAccess == nil {
+            return "Never"
+        }
+        return df.string(from: lastAccess!);
     }
     
     func toDictionary() -> [String: Any] {
@@ -74,7 +85,8 @@ extension Record {
     
     func setData(data: [String: Any]) {
         do {
-           try self.data = JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            try self.data = JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+            self.modifiedDate = Date.init()
         } catch {
             fatalError("Cannot serialize input data")
         }
